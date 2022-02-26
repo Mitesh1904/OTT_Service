@@ -1,0 +1,51 @@
+{% extends 'Base.html' %} 
+{% block title %} 
+    OTT_SEARCH_RESULT
+{% endblock title %}
+{% block body %} 
+<div>
+    <div style='background-color: rgb(44, 43, 43);'>
+    <center><img style="filter: brightness(150%);" src="https://cdn1.iconfinder.com/data/icons/hawcons/32/699290-icon-60-file-ott-512.png"  width="200px" height="75px"></center>
+    </div>
+    <div id="div6">
+        {% if values!='None'%}
+        <br>
+        <img id="im3" src="https://2.bp.blogspot.com/-YBylJ5quZ50/W583yIBv2RI/AAAAAAAAA6U/ex2hL8upaaIVzD6ilh2LCVPr00c-hRrGQCLcBGAs/s1600/background-Avengers%2BInfinity%2BWar%2B1920%2B1080%2BWallpapers%2B-%2BFull%2BHD%2BBackgrounds%2B1_new.png"><br>
+        <table class="table1">
+            <tr>
+                <th>Show Title</th>
+                <th>Description</th>
+                <th>Amount</th>
+                <th>Rating</th>
+                <th>Genre</th>
+                <th>Subscription type</th>
+            </tr>
+            {% for data in values %}
+            <tr>
+                <td>{{data[2]}}</td>
+                <td>{{data[0]}}</td>
+                <td>{{data[6]}}</td>
+                <td>{{data[1]}}</td>
+                <td>{{data[4]}}</td>
+                <td>{{data[7]}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% if singed==0 %}
+        <form action="/sign_in/" method='POST'>
+            <div style="display:none"><input  type="text" id="Customer_id" name="Customer_id" value="{{customber_id}}"></div>
+            <button class="btn6" type="submit"> Subscribe Now </button>
+        </form>
+        {% else %}
+        <form action="/play_video/" method='POST'>
+            <div style="display:none"><input  type="text" id="Customer_id" name="Customer_id" value="{{customber_id}}"></div>
+            <div style="display:none"><input  type="text" id="sub1" name="sub1" value="{{d}}"></div>
+            <button class="btn6" style="margin-left:550px" type="submit">Watch Now</button>
+        </form>
+        {% endif %}
+    {% else %}
+    <img id="im3" style="height:500px;" src="https://th.bing.com/th/id/R3c6f4b1e848d1a3be57b8b0e9e6c03f8?rik=QzfJ22A34sepFg&riu=http%3a%2f%2ficons.iconarchive.com%2ficons%2frafiqul-hassan%2fblogger%2f512%2fSearch-icon.png&ehk=DHpB5EC8q%2fsFEOFHwagj0hcJnoof8qv3EKnrk3qnBSY%3d&risl=&pid=ImgRaw">
+    <h1 style="font-size:60px;text-align:center;font-family:'Courier New', Courier, monospace;color:rgb(248, 52, 52)">Something is worng please try again later!!</h1>
+    {% endif %}
+    </div>
+{% endblock body %} 

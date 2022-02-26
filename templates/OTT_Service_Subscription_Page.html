@@ -1,0 +1,70 @@
+{% extends 'Base.html' %} 
+{% block title %} 
+    OTT_SUBSCRIPTION
+{% endblock title %}
+{% block body %} 
+    <div>
+        <div style='background-color: rgb(44, 43, 43);'>
+        <center><img style="filter: brightness(150%);" src="https://cdn1.iconfinder.com/data/icons/hawcons/32/699290-icon-60-file-ott-512.png"  width="200px" height="75px"></center>
+        </div>
+        <div id="div6">
+            <form action="/New_Subscription/" method="POST">
+            <div style="margin-left:100px;display:none"><input  type="text" id="Customer_id" name="Customer_id" value="{{values[0]}}"></div>
+            <br><br>
+            <span style="margin-left:350px;margin-top:10px;font-size:25px;" id="span1">Select Subscription type</span><br><br>
+            <span style="font-size:18px;margin-left:850px;;color:rgb(255, 81, 0)">{{error_sub}}</span><br>
+            <select class="btn8"style="margin-left:450px;margin-top:0px;width:450px;" id="Subscription" name="Subscription" value="{{values[1]}}">
+            {% for pack in subscription %}
+                <option value="{{pack[0]}}"> Subscription Pack : {{pack[2]}} &emsp;Price : {{pack[1]}}</option>
+            {% endfor %}
+            </select>
+            <br><br>
+            <p id="pay1" style="margin-top: 80px;"><span style="padding-left:500px;font-size:40px">Payment Methods<span style="font-size:18px;margin-left:150px;font-weight:bold;color:rgb(255, 81, 0)">{{error_method}}</span></span><br><br>
+            <input onclick="fun_credit()" style="margin-left:200px;" calss="btn8" type="radio" id="Credit card" value="Credit card" name="payment"><span style="padding-left:25px;padding-right:125px;">Credit card</span>
+            <input onclick="fun_credit()" calss="btn8" type="radio" value="Debit card" id="Debit card" name="payment"> <span style="padding-left:25px;padding-right:125px;">Debit card</span>
+            <input onclick="fun_third()" calss="btn8" type="radio" value="Third-party Billing" id="Third-party Billing" name="payment"><span style="padding-left:25px;">Third-party Billing</span>
+            <span style="display:none;"><input calss="btn8" type="radio" value="{{values[2]}}" id="none" name="payment" checked></span><br><br>
+            </p>
+            <div id="cr">
+            <p id="pay2">
+                <sapn style="padding-left:200px;">Card Holder Name </span> <input style="margin-left:90px;" placeholder="Enter name" class="btn8" type="text" id="cname" name="cname" value="{{values[4]}}"><span style="font-size:20px;margin-left:50px;padding-top:20px;color:rgb(255, 81, 0)">{{error_cname}}</span>
+                <br><br><sapn style="padding-left:200px;">Card Holder No </span> <input style="margin-left:120px;" placeholder="Enter Number" class="btn8" type="number" id="cno" name="cno" value="{{values[5]}}"><span style="font-size:20px;margin-left:50px;padding-top:20px;color:rgb(255, 81, 0)">{{error_cno}}</span><br>
+                <br><sapn style="padding-left:200px;">Expire Date </span> <input style="margin-left:160px;width:80px" placeholder="MM" class="btn8" type="text" id="expmonth" name="expmonth" value="{{values[6]}}"> /
+                <input style="margin-left:0px;width:90px" placeholder="YYYY" class="btn8" type="text" id="expyear" name="expyear" value="{{values[7]}}"><span style="font-size:16px;margin-left:5px;padding-top:20px;color:rgb(255, 81, 0)">{{error_mm}}{{error_yy}}</span>
+                <br><br><sapn style="padding-left:200px;">CVC </span> <input style="margin-left:230px;" placeholder="Enter CVC" class="btn8" type="number" id="cvc" name="cvc" value="{{values[8]}}"><span style="font-size:20px;margin-left:50px;padding-top:20px;color:rgb(255, 81, 0)">{{error_cv}}</span>
+            </p>
+            </div>
+            <div id="th">
+            <p id="pay2">
+                <span style="padding-left:250px;font-size:30px">Select one</span><br><br>
+                <input style="margin-left:350px;" calss="btn8" type="radio" id="Vodafone" value="Vodafone" name="third"><span style="padding-left:25px;padding-right:125px;font-size:25px;">Vodafone</span><br><br>
+                <input style="margin-left:350px;"calss="btn8" type="radio" value="Aritel" id="Aritel" name="third"> <span style="padding-left:25px;padding-right:125px;font-size:25px;">Aritel</span><br><br>
+                <input style="margin-left:350px;"calss="btn8" type="radio" value="ACT" id="ACT" name="third"> <span style="padding-left:25px;padding-right:125px;font-size:25px;">ACT</span><br><br>
+                <input style="margin-left:350px;"calss="btn8" type="radio" value="Jio" id="Jio" name="third"><span style="padding-left:25px;font-size:25px;" checked> Jio</span><br>
+                <span style="display:none;"><input calss="btn8" type="radio" value="{{values[3]}}" id="none" name="third" checked></span>
+                <br><span style="font-size:20px;margin-left:250px;padding-top:20px;color:rgb(255, 81, 0)">{{error_third}}</span>
+            </p>
+            {% if values[2]=='Third-party Billing' %}
+            <script>
+                    document.getElementById('pay1').style.display="none";
+                    document.getElementById('th').style.display="block"
+                    document.getElementById('pay2').style.marginTop="10px";
+                </script>
+            {% elif ((values[2]=='Credit card') or (values[2]=='Debit card')) %}
+                <script>
+                    document.getElementById('pay1').style.display="none";
+                    document.getElementById('cr').style.display="block"
+                    document.getElementById('pay2').style.marginTop="10px";
+                </script>
+            {% else %}
+                <script>
+                    document.getElementById('pay1').style.display="block";
+                    document.getElementById('cr').style.display="none"
+                    document.getElementById('th').style.display="none"
+                </script>
+            {% endif %}
+            </div>
+            <center><button class="btn6" style="margin-left:0px;margin-top:40px;" type="submit" id="submit_sub" name="submit_sub">Subscribe</button></center><br><br>
+        </form>
+    </div>
+{% endblock body %} 

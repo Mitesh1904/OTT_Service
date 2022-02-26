@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>
+            {% block title %}
+
+            {% endblock title%}
+        </title>
+        <link rel="shortcut icon" href="https://cdn1.iconfinder.com/data/icons/hawcons/32/699290-icon-60-file-ott-512.png" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/OTT_Service.css') }}">
+        <script src="{{ url_for('static', filename='js/OTT_Service.js') }}"></script>
+        <!--    <link rel="stylesheet" href="C:\Users\Admin\Desktop\DBMS\Project\Phase-2_19BCE148_19BCE149_19BCE151\static\css\OTT_Service.css"> -->
+    </head>
+    <body>
+    {% block body %}
+
+    {% endblock body%}
+    </body>
+</html>

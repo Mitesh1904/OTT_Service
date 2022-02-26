@@ -1,0 +1,105 @@
+<html>
+    <head>
+        <title>OTT_SERVICE</title>
+        <link rel="shortcut icon" href="https://cdn1.iconfinder.com/data/icons/hawcons/32/699290-icon-60-file-ott-512.png" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/OTT_Service.css') }}">
+        <script src="{{ url_for('static', filename='js/OTT_Service.js') }}"></script>
+    </head>
+    <body onload="setTimeout(get_img,5000,0)">
+        <div id="title_menu">
+            <ul id="ls1" type="none">
+                <img style="padding:0px;margin-top: 2px;" src="https://cdn1.iconfinder.com/data/icons/hawcons/32/699290-icon-60-file-ott-512.png" alt="" width="75px" height="50px">
+                <form action="/About/" method="POST">
+                <li class="lsit1" style="margin-left:30px;"><button class="btn2">About</button></li>
+                </form>
+                <form action="/show_and_movie/" method="POST">
+                <li class="lsit1" style="margin-left:30px;"><button class="btn2">Shows</button></li>
+                </form>
+                <form action="/show_and_movie/" method="POST">
+                <li class="lsit1" style="margin-left:30px;"><button class="btn2">Movies</button></li>
+                </form>
+                <form action="/search/" method="POST"> 
+                <div style="display:none"><input  type="text" id="Customer_id" name="Customer_id" value="{{customber_id}}"></div>
+                <li><input class="btn3" style="margin-left: 300px;" name="search" id="search" placeholder="Search any show/movie" type="search"><button class="btn2">Search</button></li>
+                </form>
+                {% if singed==0 %}
+                <form action="/sign_in/" method="POST">
+                <div style="display:none"><input  type="text" id="Customer_id" name="Customer_id" value="{{customber_id}}"></div>
+                <li id="li1" class="lsit1"><button type="submit" style="margin-left:70px;margin-top:3px;font-size:20px;" class="btn4">Sign in</button></li>
+                </form>
+                {% endif %}
+                {% if singed==1 %}
+                <form action="/User_data/" method="POST">
+                <div style="display:none"><input  type="text" id="Customer_id" name="Customer_id" value="{{customber_id}}"></div>
+                <li  class="lsit1"><button type="submit" style="margin-left:70px;margin-top:-10px;font-size:20px;background-color:rgb(44, 43, 43)" class="btn4"><img style="filter: brightness(200%);"src="https://signup.trybooking.com/media/imgs/653488ddd926ab077de00f6d07ada3535e6dc186.png" alt="" width="75px" height="50px"></button></li>
+                </form>
+                {% endif %}
+            </ul>
+        </div>
+        <div id="div1">
+            <div id="div1_data">
+                <h1 style="font-size:40px;text-align:center"><br>Welcome our OTT platform </h1><br>
+                <h3 style="font-size:30px;">Join Now and enjoy unlimited shows and movies </h3><br><br>
+                {% if singed==0 %}
+                <form action="/sign_in/" method="POST">
+                <div style="display:none"><input  type="text" id="Customer_id" name="Customer_id" value="{{customber_id}}"></div>
+                <button class="btn1"> Subscribe Now </button></form>
+                {% endif %}
+                {% if singed==1 %}
+                <form action="/Subscription/" method="POST">
+                <div style="display:none"><input  type="text" id="Customer_id" name="Customer_id" value="{{customber_id}}"></div>
+                <button class="btn1"> Subscribe Now </button></form>
+                {% endif %}
+                </div>
+        </div>
+        <div id="div2">
+            <h1 style="text-align: center;font-size:50px;"><br>Now streaming</h1>
+            <img id='im1' src="https://i1.wp.com/urbanasian.com/wp-content/uploads/2018/11/Mirzapur.jpg?fit=1200%2C628&ssl=1">
+        </div>
+        <div id="div3">
+            <div id="sub_div1"><br>
+            <img class="im2" src="https://images-na.ssl-images-amazon.com/images/G/01/digital/video/Magellan_MLP/PV_Benefits_Devices.jpg"><br>
+            <h1 style="text-align: center;font-size:30px;padding:30px">Enjoy on Your TV</h1>
+            <p class="para">You can enjoy on your phone, tablet or on Smart TVs, PlayStation, Apple TV, and more at onece</p>
+            </div>
+            <div id="sub_div2"><br>
+            <img class="im2" src="https://assets.materialup.com/uploads/94093eda-5894-4b16-9d1f-914d93504c64/download.gif"><br>
+            <h1 style="text-align: center;font-size:30px;padding:30px">Download Your Shows</h1>
+            <p class="para">You can Dowload Show and enjoy anywhere with offline videso on your phone,tv, or iPad, Tablet, etc.</p>
+            </div>
+            <div id="sub_div3"><br>
+            <img class="im2" src="https://cdn4.iconfinder.com/data/icons/business-conceptual-part3/513/travelling-512.png"><br>
+            <h1 style="text-align: center;font-size:30px;padding:30px">Watch any Where</h1>
+            <p class="para">Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.</p>
+            </div>
+        </div>
+        <div id="div4">
+        <h1 style="margin-left:50px;color:rgb(255, 255, 255);font-size:50px"><br>Genres</h1>
+        <form action="/search/" method="POST">
+        <div style="display:none"><input  type="text" id="Customer_id" name="Customer_id" value="{{customber_id}}"></div>
+        <button name="search" value="Action" style="margin-left:80px;" class="btn5">Action</button>
+        <button name="search" value="Comedy" class="btn5">Comedy</button>
+        <button name="search" value="Crime and mystery" class="btn5">Crime and mystery</button>
+        <button name="search" value="Horror" class="btn5">Horror</button>
+        <button name="search" value="Romance" class="btn5">Romance</button>
+        <button name="search" value="Thriller" class="btn5">Thriller</button>
+        <button name="search" value="Other" class="btn5">Other</button>
+        </form>
+        {% if singed==0 %}
+        <form action="/sign_in/" method="POST">
+        <div style="display:none"><input  type="text" id="Customer_id" name="Customer_id" value="{{customber_id}}"></div>
+        <button class="btn6">Subscribe Now </button></form>
+        {% endif %}
+        {% if singed==1 %}
+        <form action="/Subscription/" method="POST">
+        <div style="display:none"><input  type="text" id="Customer_id" name="Customer_id" value="{{customber_id}}"></div>
+        <button class="btn6"> Subscribe Now </button></form>
+        {% endif %}
+        </div>
+        <div id="div5">
+            <p class='para'>
+            <img style="filter: brightness(150%);" src="https://cdn1.iconfinder.com/data/icons/hawcons/32/699290-icon-60-file-ott-512.png"  width="300px" height="150px">
+            <br>Terms and Privacy © 2020-2021, WWW.OTT_Service.com, Inc. or its affiliates<br><br><span style="font-size:25px;color:white">Feedback</span></p>
+        </div>
+    </body>
+</html>

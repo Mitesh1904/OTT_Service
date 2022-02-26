@@ -1,0 +1,32 @@
+{% extends 'Base.html' %} 
+{% block title %} 
+    OTT_SIGN_IN
+{% endblock title %}
+{% block body %} 
+    <div id="div6">
+        <div>
+        <center><img style="filter: brightness(150%);margin-top:10px;" src="https://cdn1.iconfinder.com/data/icons/hawcons/32/699290-icon-60-file-ott-512.png"  width="300px" height="150px"></center>
+    </center></div>
+        <div id="div_log_in">
+            <span class="span2" style="padding-left:0px;"><H1 style="text-align: center;">Sign in</H1></span>
+            <form action="/signed_in/" method="POST">
+            <span class="span2" style="margin-left: 75px;">Email Ac.</span><span class="span2" style="margin-left:0px;">:</span><input class="btn7" id="username" name="username" placeholder="Enter Email" type="text"><br><br>
+            <span class="span2" style="margin-left: 75px;">Password</span><span class="span2" style="margin-left:9px;">:</span><input id="singpass" name="singpass" placeholder="Enter Password" class="btn7"  type="password"><br><br><br>
+            <center><button style="height: 40px;width: 150px;padding-bottom:5px;" class="btn7" type="submit">Sign in</button></center></form>
+            {% if error_sing==1%}
+            <center><br><p>Invalid Ac. or Password</p></center>
+            {% endif %}
+        </div>
+        <br><br>
+        <div>
+            <form style="margin-left:530px;margin-top:0px;"action="/forgot_password/" method="POST">
+                <div style="display:none"><input  type="text" id="Customer_id" name="Customer_id" value="{{id}}"></div>
+                <button style="margin-left:0px;height:40px;width: 150px;padding-bottom:5px;width: 250px;color:red;background-color:black" class="btn7" type="submit">Forgotten Password</button>
+            </form>
+            <form style="margin-left:530px;margin-top:10px;" action="/Sign_up/" method="POST">
+                <div style="display:none"><input  type="text" id="Customer_id" name="Customer_id" value="{{id}}"></div>
+                <button type="submit" style="margin-left:0px;height:40px;width: 150px;padding-bottom:5px;width: 250px;color:red;background-color:black" class="btn7" type="submit">Sign up New_Account</button>
+            </form>
+        </div>
+    </div>
+{% endblock body %}
