@@ -635,4 +635,4 @@ def forgot_password():
 def log_out():
     if request.method=='POST':
         return render_template('OTT_Service_Home_page.html',singed=0,customber_id=None)
-app.run(debug=True)
+app.run(host="0.0.0.0",port=5000)
