@@ -9,11 +9,6 @@ import datetime
 import re
 
 #for on the foreign key constraints 
-@event.listens_for(Engine, "connect")
-def set_sqlite_pragma(dbapi_connection, connection_record):
-    cursor = dbapi_connection.cursor()
-    cursor.execute("PRAGMA foreign_keys=ON")
-    cursor.close()
 
 class Customer():
     def __init__(self):
@@ -636,3 +631,9 @@ def log_out():
     if request.method=='POST':
         return render_template('OTT_Service_Home_page.html',singed=0,customber_id=None)
 app.run(debug=True)
+
+@event.listens_for(Engine, "connect")
+def set_sqlite_pragma(dbapi_connection, connection_record):
+    cursor = dbapi_connection.cursor()
+    cursor.execute("PRAGMA foreign_keys=ON")
+    cursor.close()
