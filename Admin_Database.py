@@ -6,11 +6,6 @@ from sqlalchemy import event
 
 #Action,comedy,crime and mystery,horror,romance,thriller,other
 
-@event.listens_for(Engine, "connect")
-def set_sqlite_pragma(dbapi_connection, connection_record):
-    cursor = dbapi_connection.cursor()
-    cursor.execute("PRAGMA foreign_keys=ON")
-    cursor.close()
 
 #DATA_BASE class fro create new class
 class DATA_BASE:
@@ -23,7 +18,7 @@ class DATA_BASE:
     #create fun create all required tablse 
     def create(self):
 
-        #Customber Table Create Query :
+        #Customber Table Create Query : 
         Query=text('''
         CREATE TABLE Customer(
         Email varchar2(40) NOT NULL UNIQUE, 
@@ -33,7 +28,7 @@ class DATA_BASE:
         CONSTRAINT Customer_primary_const PRIMARY KEY (Customer_ID))''')
         self.engine.connect().execute(Query)
 
-        #Subscription Table Create Query :
+        #Subscription Table Create Query : 
         Query=text('''
         CREATE TABLE Subscription(
         Subscription_ID varchar2(25) NOT NULL,
@@ -169,12 +164,12 @@ class DATA_BASE:
         if(len(output_customer)!=0):
             print("\n")
             print("Customer Data given below".center(180))
-            print("\n\n\t\t---------------------------------------------------------------------------------------------------------------------------------------")
-            print("\t\t|     Customer_ID     |            Email            |     Last_Name     |     First_Name     |      Address      |      Phone_No      |")
-            print("\t\t---------------------------------------------------------------------------------------------------------------------------------------")
+            print("\n\n\t\t-----------------------------------------------------------------------------------------------------------------------------------------------------------")
+            print("\t\t|     Customer_ID     |            Email            |     Last_Name     |     First_Name     |                Address                |      Phone_No      |")
+            print("\t\t-----------------------------------------------------------------------------------------------------------------------------------------------------------")
             for i in output_customer:
-                print("\t\t|{}|{}|{}|{}|{}|{}|".format(str(i[1]).center(21),str(i[0]).center(29),str(i[2]).center(19),str(i[3]).center(20),str(i[4]).center(19),str(i[5]).center(20)))
-            print("\t\t---------------------------------------------------------------------------------------------------------------------------------------")
+                print("\t\t|{}|{}|{}|{}|{}|{}|".format(str(i[1]).center(21),str(i[0]).center(29),str(i[2]).center(19),str(i[3]).center(20),str(i[4]).center(39),str(i[5]).center(20)))
+            print("\t\t-----------------------------------------------------------------------------------------------------------------------------------------------------------")
 
         #All Payment realted data of customer
         
@@ -355,6 +350,7 @@ class Include():
             for i in output:
                 print("\t\t\t\t\t\t\t   |{}|{}|".format(str(i[1]).center(23),str(i[0]).center(31)))
             print("\t\t\t\t\t\t\t   ---------------------------------------------------------")
+
 
 def menu():
     for i in range(180):
@@ -671,6 +667,7 @@ def menu():
             print("\n\t\t\t   Invalid Input ")
 
 
+    
 #if database does not exist than go in else part and create new database 
 if os.path.isfile('OTT_Service_database.db'):
     menu()  #call menu

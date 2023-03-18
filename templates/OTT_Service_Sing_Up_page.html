@@ -11,23 +11,24 @@
             <pre style="font-family:Avenir" >
             <form action="/Subscribe/" method="POST">
             <div style="display:none"><input  type="text" id="Customer_id" name="Customer_id" value="{{id}}"></div>
-            <br>
-            <span id="span1">First_name        &emsp;</span><input style="margin-left:100px;" placeholder='Enter first name' class="btn8" type="text" id="first_name" name="first_name" value="{{values[0]}}"><span style="color: rgb(255, 81, 0);font-weight:bold;">{{error_f}}</span><br>
-            <span id="span1">Last_name         &emsp;</span><input style="margin-left:100px;" placeholder='Enter last name' class="btn8" type="text" id="last_name" name="last_name" value="{{values[1]}}"><span style="color: rgb(255, 81, 0);font-weight:bold;">{{error_l}}</span><br>
-            <span id="span1">Email             &emsp;&emsp;</span><input style="margin-left:100px;" placeholder='Enter Your Email' class="btn8" type="email" id="email" name="email" value="{{values[2]}}"><span style="color: rgb(255, 81, 0);font-weight:bold;">{{error_em}}</span><br>
-            <span id="span1">Mobile No1       &emsp;</span><input style="margin-left:100px;" placeholder='Enter Your M. No' class="btn8" type="number" id="num1" name="num1" value="{{values[3]}}"><span style="color: rgb(255, 81, 0);font-weight:bold;">{{error_n}}</span><br>
-            <span id="span1">Mobile No2       &emsp;</span><input style="margin-left:100px;" placeholder='Enter Your M. No' class="btn8" type="number" id="num2" name="num2" value="{{values[4]}}"><span style="color: rgb(255, 81, 0);font-weight:bold;">{{error_x}}</span><br>
-            <span id="span1">Address1       &emsp;&emsp;</span><input style="margin-left:100px;" placeholder='Enter Address1' class="btn8" type="text" id="Address1" name="Address1" value="{{values[5]}}"><span style="color: rgb(255, 81, 0);font-weight:bold;">{{error_ad}}</span><br>
-            <span id="span1">Address2       &emsp;&emsp;</span><input style="margin-left:100px;" placeholder='Enter Address2' class="btn8" type="text" id="Address2" name="Address2" value="{{values[6]}}"><span style="color: rgb(255, 81, 0);font-weight:bold;">{{error_x}}</span><br>
+            <center>
+            <span id="span1">First_name        &emsp;</span><input class="btn8" style="margin-left:100px;width:15%;font-size:175%" placeholder='Enter first name'  type="text" id="first_name" name="first_name" value="{{values[0]}}"><span style="color: rgb(255, 81, 0);font-weight:bold;">{{error_f}}</span><br>
+            <span id="span1">Last_name         &emsp;</span><input class="btn8" style="margin-left:100px;width:15%;font-size:175%" placeholder='Enter last name'  type="text" id="last_name" name="last_name" value="{{values[1]}}"><span style="color: rgb(255, 81, 0);font-weight:bold;">{{error_l}}</span><br>
+            <span id="span1">Email             &emsp;&emsp;</span><input class="btn8" style="margin-left:100px;width:15%;font-size:175%" placeholder='Enter Your Email'  type="email" id="email" name="email" value="{{values[2]}}"><span style="color: rgb(255, 81, 0);font-weight:bold;">{{error_em}}</span><br>
+            <span id="span1">Mobile No1       &emsp;</span><input class="btn8" style="margin-left:100px;width:15%;font-size:175%" placeholder='Enter Your M. No'  type="number" id="num1" name="num1" value="{{values[3]}}"><span style="color: rgb(255, 81, 0);font-weight:bold;">{{error_n}}</span><br>
+            <span id="span1">Mobile No2       &emsp;</span><input class="btn8" style="margin-left:100px;width:15%;font-size:175%" placeholder='Enter Your M. No'  type="number" id="num2" name="num2" value="{{values[4]}}"><span style="color: rgb(255, 81, 0);font-weight:bold;">{{error_x}}</span><br>
+            <span id="span1">Address1       &emsp;&emsp;</span><input class="btn8" style="margin-left:100px;width:15%;font-size:175%" placeholder='Enter Address1'  type="text" id="Address1" name="Address1" value="{{values[5]}}"><span style="color: rgb(255, 81, 0);font-weight:bold;">{{error_ad}}</span><br>
+            <span id="span1">Address2       &emsp;&emsp;</span><input class="btn8" style="margin-left:100px;width:15%;font-size:175%" placeholder='Enter Address2'  type="text" id="Address2" name="Address2" value="{{values[6]}}"><span style="color: rgb(255, 81, 0);font-weight:bold;">{{error_x}}</span><br>
             {% if id=='None' %}
-            <span id="span1">Password          &nbsp;&emsp;</span><input style="margin-left:100px;" placeholder='Enter New Password' class="btn8" type="password" id="pass" name="pass" value="{{values[7]}}"><span style="color: rgb(255, 81, 0);font-weight:bold;">{{error_p}}</span><br>
-            <span id="span1">Conform Password  </span><input style="margin-left:100px;" class="btn8" placeholder='Enter Confirm Password' type="password" id="repass" name="repass" value="{{values[8]}}"><span style="color: rgb(255, 81, 0);font-weight:bold;">{{error_r}}</span><br><br>
+            <span id="span1">Password          &nbsp;&emsp;</span><input class="btn8"style="margin-left:100px;width:15%;font-size:175%" placeholder='Enter New Password'  type="password" id="pass" name="pass" value="{{values[7]}}"><span style="color: rgb(255, 81, 0);font-weight:bold;">{{error_p}}</span><br>
+            <span id="span1">Confirm Password  </span><input class="btn8" style="margin-left:100px;width:15%;font-size:175%"  placeholder='Enter Confirm Password' type="password" id="repass" name="repass" value="{{values[8]}}"><span style="color: rgb(255, 81, 0);font-weight:bold;">{{error_r}}</span><br>
             {% endif %}
             {% if id=='None' %}
-            <button class="btn6" style="margin-left:350px;margin-top:19px;" type="submit" id="submit_sub" name="submit_sub">Sign up</button>
+            <button class="btn6" style="margin-top:19px;" type="submit" id="submit_sub" name="submit_sub">Sign up</button>
             {% else %}
-            <button class="btn6" style="margin-left:350px;margin-top:19px;" type="submit" id="submit_sub" name="submit_sub">Update</button>
+            <button class="btn6" style="margin-top:19px;" type="submit" id="submit_sub" name="submit_sub">Update</button>
             {% endif %}
+            </center>
             </form></pre>
         </div>
 {% endblock body %}  

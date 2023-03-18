@@ -7,45 +7,68 @@
     <div style='background-color: rgb(44, 43, 43);'>
     <center><img style="filter: brightness(150%);" src="https://cdn1.iconfinder.com/data/icons/hawcons/32/699290-icon-60-file-ott-512.png"  width="200px" height="75px"></center>
     </div>
-    <div id="div6">
+    <div class="position-relative shadow-1-strong rounded mb-5 opacity-70"
+        style="background-image: url('https://cdn.mos.cms.futurecdn.net/rDJegQJaCyGaYysj2g5XWY.jpg');
+               height: 80%;
+               background-repeat: no-repeat;
+               background-position: center;
+               background-size: cover;">
         {% if values!='None'%}
         <br>
-        <img id="im3" src="https://2.bp.blogspot.com/-YBylJ5quZ50/W583yIBv2RI/AAAAAAAAA6U/ex2hL8upaaIVzD6ilh2LCVPr00c-hRrGQCLcBGAs/s1600/background-Avengers%2BInfinity%2BWar%2B1920%2B1080%2BWallpapers%2B-%2BFull%2BHD%2BBackgrounds%2B1_new.png"><br>
-        <table class="table1">
-            <tr>
-                <th>Show Title</th>
-                <th>Description</th>
-                <th>Amount</th>
-                <th>Rating</th>
-                <th>Genre</th>
-                <th>Subscription type</th>
-            </tr>
-            {% for data in values %}
-            <tr>
-                <td>{{data[2]}}</td>
-                <td>{{data[0]}}</td>
-                <td>{{data[6]}}</td>
-                <td>{{data[1]}}</td>
-                <td>{{data[4]}}</td>
-                <td>{{data[7]}}</td>
-            </tr>
-            {% endfor %}
-        </table>
+        <div class="d-flex justify-content-center">
+            <img class="img-responsive" id="im3" src="https://2.bp.blogspot.com/-YBylJ5quZ50/W583yIBv2RI/AAAAAAAAA6U/ex2hL8upaaIVzD6ilh2LCVPr00c-hRrGQCLcBGAs/s1600/background-Avengers%2BInfinity%2BWar%2B1920%2B1080%2BWallpapers%2B-%2BFull%2BHD%2BBackgrounds%2B1_new.png"><br>
+        </div>
+        <br>
+        <div class="d-flex justify-content-center">
+            <table class="table1">
+                <tr>
+                    <th>Show Title</th>
+                    <th>Description</th>
+                    <th>Amount</th>
+                    <th>Rating</th>
+                    <th>Genre</th>
+                    <th>Subscription type</th>
+                </tr>
+                {% for data in values %}
+                <tr>
+                    <td>{{data[2]}}</td>
+                    <td>{{data[0]}}</td>
+                    <td>{{data[6]}}</td>
+                    <td>{{data[1]}}</td>
+                    <td>{{data[4]}}</td>
+                    <td>{{data[7]}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
         {% if singed==0 %}
-        <form action="/sign_in/" method='POST'>
-            <div style="display:none"><input  type="text" id="Customer_id" name="Customer_id" value="{{customber_id}}"></div>
-            <button class="btn6" type="submit"> Subscribe Now </button>
-        </form>
+        <div class="d-flex justify-content-center">
+            <form action="/sign_in/" method='POST'>
+                <div style="display:none"><input  type="text" id="Customer_id" name="Customer_id" value="{{customber_id}}"></div>
+                <button class="btn6" type="submit"> Subscribe Now </button>
+            </form>
+            <br>
+        </div>
         {% else %}
-        <form action="/play_video/" method='POST'>
-            <div style="display:none"><input  type="text" id="Customer_id" name="Customer_id" value="{{customber_id}}"></div>
-            <div style="display:none"><input  type="text" id="sub1" name="sub1" value="{{d}}"></div>
-            <button class="btn6" style="margin-left:550px" type="submit">Watch Now</button>
-        </form>
+        <div class="d-flex justify-content-center">
+            <form action="/play_video/" method='POST'>
+                <div style="display:none"><input  type="text" id="Customer_id" name="Customer_id" value="{{customber_id}}"></div>
+                <div style="display:none"><input  type="text" id="sub1" name="sub1" value="{{d}}"></div>
+                <button class="btn6" type="submit">Watch Now</button>
+            </form>
+            <br>
+        </div>
         {% endif %}
     {% else %}
-    <img id="im3" style="height:500px;" src="https://th.bing.com/th/id/R3c6f4b1e848d1a3be57b8b0e9e6c03f8?rik=QzfJ22A34sepFg&riu=http%3a%2f%2ficons.iconarchive.com%2ficons%2frafiqul-hassan%2fblogger%2f512%2fSearch-icon.png&ehk=DHpB5EC8q%2fsFEOFHwagj0hcJnoof8qv3EKnrk3qnBSY%3d&risl=&pid=ImgRaw">
-    <h1 style="font-size:60px;text-align:center;font-family:'Courier New', Courier, monospace;color:rgb(248, 52, 52)">Something is worng please try again later!!</h1>
+    <div class="d-flex justify-content-center">
+    <img class="img-responsive" id="im3" style="height:700px" src="https://thenounproject.com/api/private/icons/1250259/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0&token=gAAAAABkFbXpNkvWKMRUM-KvHSH2_-2mxSNkp1b158Bj_OmbDUrTY14I8VmWxfZsZj3TBSonncuucwpSbBnBIGfbWTm2dBbyew%3D%3D">
+    </div>
+    <h1 class="span2">Something is worng please try again later!!</h1>
     {% endif %}
+    </div>
+    <div id="div5">
+        <p class='para'>
+        <img class="img-responsive" style="filter: brightness(150%);" src="https://cdn1.iconfinder.com/data/icons/hawcons/32/699290-icon-60-file-ott-512.png"  width="300px" height="150px">
+        <br>Terms and Privacy © 2020-2023, WWW.OTT_Service.com, Inc. or its affiliates<br><br><span style="font-size:125%;color:white">Feedback</span></p>
     </div>
 {% endblock body %} 
