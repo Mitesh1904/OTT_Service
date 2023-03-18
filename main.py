@@ -87,7 +87,7 @@ class Subscribe():
         output=self.engine.connect().execute(Query).fetchall()
         self.Amount=output[0][0]
         self.subscription_date=datetime.datetime.now().strftime('%d-%m-%Y')
-        self.expire_date = datetime.datetime.now()+datetime.timedelta(days=-30)
+        self.expire_date = datetime.datetime.now()+datetime.timedelta(days=30)
         self.expire_date=self.expire_date.strftime('%d-%m-%Y')
         #insert into Payment
         Query=text(f'insert into Payment (Payment_ID,Amount,Payment_Date,Payment_type,Customer_ID,Subscription_ID) values ("{self.payid}","{self.Amount}","{self.subscription_date}","{method}","{customer_id}","{subscription_id}")')
@@ -192,9 +192,9 @@ def user_data():
         out2=engine.connect().execute(Query).fetchall()
         Query=text(f"select * from Customer_Phone_No where Customer_ID='{id}'")
         out3=engine.connect().execute(Query).fetchall()
-        Query=text(f"select Subscription_ID,Subscription_Date,Expire_Date date,Subscription_Type,Price from Subscribe natural join Subscription where s1.Customer_ID='{id}'")
+        Query=text(f"select Subscription_ID,Subscription_Date,Expire_Date date,Subscription_Type,Price from Subscribe natural join Subscription where Customer_ID='{id}'")
         out4=engine.connect().execute(Query).fetchall()
-        Query=text(f"select Payment_ID,Subscription_Type,Amount,Payment_Date,Payment_type from Customer natural join payment natural join Subscription where c1.Customer_ID='{id}'")
+        Query=text(f"select Payment_ID,Subscription_Type,Amount,Payment_Date,Payment_type from Customer natural join payment natural join Subscription where Customer_ID='{id}'")
         output3=engine.connect().execute(Query).fetchall()
         for i in out1[0]:
             output1.append(i)
