@@ -5,10 +5,19 @@
 {% block body %}
 
 <body onload="setTimeout(get_img,5000,0)">
-<div>
-    <div id="div2" style="height:150px;"><h1 style="text-align: center;font-size:50px;"><br>Now streaming</h1></div>
-    <div id="div6">
-        <img id='im1' src="https://i1.wp.com/urbanasian.com/wp-content/uploads/2018/11/Mirzapur.jpg?fit=1200%2C628&ssl=1">
+    <div style='background-color: rgb(44, 43, 43);'>
+        <center><img class="img-responsive" style="filter: brightness(150%);" src="https://cdn1.iconfinder.com/data/icons/hawcons/32/699290-icon-60-file-ott-512.png"  width="225px" height="125px"></center>
+    </div>
+    <div id="div2">
+        <h1 style="text-align:center;font-size:50px;"><br>Now streaming</h1>
+        <div class="fade-in-image">
+            <img class="img-responsive" alt="Responsive image" id='im1' src="https://i1.wp.com/urbanasian.com/wp-content/uploads/2018/11/Mirzapur.jpg?fit=1200%2C628&ssl=1">    
+        </div>
+    </div>
+    <div id="div5">
+        <p class='para'>
+        <img class="img-responsive" style="filter: brightness(150%);" src="https://cdn1.iconfinder.com/data/icons/hawcons/32/699290-icon-60-file-ott-512.png"  width="300px" height="150px">
+        <br>Terms and Privacy © 2020-2023, WWW.OTT_Service.com, Inc. or its affiliates<br><br><span style="font-size:125%;color:white">Feedback</span></p>
     </div>
 </body>
 {% endblock body%}

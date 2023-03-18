@@ -9,17 +9,19 @@
     </div>
     <div id="div15" style="height:500px;">
         {% if t==1 %}
-        <video style="margin-top:50px;margin-left:250px" width="65%" height="100%" controls>
-        <source src="{{ url_for('static', filename='video/What is OTT  Types of OTT Platforms  OTT Future of Advertising  Over T 1080 x 1920.mp4') }}" type="video/mp4">
+        <div class="d-flex justify-content-center ">
+        <video style="margin-top:5%;" width="65%" height="100%" controls>
+        <source src="{{ url_for('static', filename='video/Meme.mp4') }}" type="video/mp4">
         </video>
+    </div>
         {% else %}
             <br><br><br><br><br>
             <br><br><br><br><br>
             <div id="div_log_in" style="padding-top:50px;width:55%;margin-left:20%;">
-            <h1 style="font-size:35px"> Select the Subscription pack for watch that Show</h1><br><br>
+            <h1 style="font-size:35px;text-align:center"> Select the Subscription pack for watch that Show</h1>
             <form action="/Subscription/" method="POST">
             <div style="display:none"><input  type="text" id="Customer_id" name="Customer_id" value="{{id}}"></div>
-            <center><button class="btn1" style="margin-left:0%"> Subscribe Now </button></center></form>
+            <center><button class="btn6" style="margin-left:0%;width:70%"> Subscribe Now </button></center></form>
             </div>
         {% endif %}
     </div>
